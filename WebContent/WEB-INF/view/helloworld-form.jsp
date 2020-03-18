@@ -2,15 +2,11 @@
 <head>
 	<title>Hello World- Input Form</title>
 </head>
-<!-- And then we'll set the action="processForm".
 
-And we'll set the method="GET".
+<!-- The form tag library comes bundled in spring-webmvc.jar. The library descriptor is called spring-form.tld.
+To use the tags from this library, add the following directive to the top of your JSP page: -->
 
-So basically we're going to send something
 
-over to the path /processForm,
-
-and then the actual method type will be GET. -->
 <body>
 	<form action ="processFormVersionThree" method = "GET">
 		<input type ="text" name="studentName"
