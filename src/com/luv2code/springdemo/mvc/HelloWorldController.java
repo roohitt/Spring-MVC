@@ -1,12 +1,13 @@
 package com.luv2code.springdemo.mvc;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+//below is parent request mapping to remove ambiguity now we'll use hello/showForm
 @Controller
+@RequestMapping("/hello")
 public class HelloWorldController {
 	
 	//controller method to show initial form
@@ -17,7 +18,7 @@ public class HelloWorldController {
 	}
 	
 	//process the form method
-	@RequestMapping("processForm")
+	@RequestMapping("/processForm")
 	public String processForm() {
 		return "helloWorld";
 	}
@@ -25,11 +26,9 @@ public class HelloWorldController {
 	//new a controller method to read form data and
 	// add data to the model
 	
-	@RequestMapping("/processFormVersionTwo")
-	public String letShoutDude(HttpServletRequest request,Model model) {
+	@RequestMapping("/processFormVersionThree")
+	public String letShoutDude(@RequestParam("studentName") String theNameString,Model model) {
 		
-		//read the request parameter from the HTML form
-		String theNameString =  request.getParameter("studentName");
 		
 		//convert the data to all caps
 		theNameString = theNameString.toUpperCase();
